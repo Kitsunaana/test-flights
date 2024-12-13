@@ -16,8 +16,8 @@ export const Filters = () => {
 
       <div className={styles.checkboxList}>
         {filters.map((filter) => (
-          <div key={filter.value}>
-            <Checkbox caption={filter.caption} />
+          <div className={styles.filterItem} key={filter.value}>
+            <Checkbox className={styles.checkboxLable} caption={filter.caption} />
           </div>
         ))}
       </div>
