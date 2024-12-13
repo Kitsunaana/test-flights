@@ -1,55 +1,45 @@
 import clsx from "clsx"
 import styles from "./styles.module.css"
-import { getFormatedTime, getFormatedTimeFlight } from "../../domain/flight"
+import {
+  Flight,
+  getFormatPrice,
+  getFormatTimeFlight,
+  getFormatTimeTravel, getFormatTransfers
+} from "../../domain/flight"
 
-const flights = [
-  {
-    id: "1",
-    from: "MOW",
-    to: "HKT",
-    startTime: 1734061500206,
-    endTime: 1734054300892,
-    travelTime: 1734099300524,
-    transfers: ["HKG", "JNB"]    
-  },
-  {
-    id: "2",
-    from: "MOW",
-    to: "HKT",
-    startTime: 1734063600292,
-    endTime: 1734025800250,
-    travelTime: 1734071400032,
-    transfers: ["HKG"]    
-  }
-]
-
-export const Card = () => {
+export const Card = ({ flight }: { flight: Flight }) => {
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
-        <span className={clsx(styles.price, styles.column)}>13 400 Р</span>
+        <span className={clsx(styles.price, styles.column)}>{getFormatPrice(flight.price)}</span>
         <span className={styles.column}></span>
         <span className={styles.column}>
-          <img className={styles.logo} src="https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png" alt="" />
+          <img className={styles.logo} src={flight.logo} alt="logo" />
         </span>
       </div>
 
-      {flights.map((flight) => (
-        <div className={styles.flight} key={flight.id}>
+      {flight.flights.map((flightInfo) => (
+        <div className={styles.flight} key={flightInfo.id}>
           <div className={styles.flightItem}>
-            <div className={styles.flightTitle}>{flight.from} - {flight.to}</div>
-            <div className={styles.flightDescription}>{getFormatedTimeFlight(flight)}</div>
+            <div className={styles.flightTitle}>{flightInfo.from} - {flightInfo.to}</div>
+            <div className={styles.flightDescription}>{getFormatTimeFlight(flightInfo)}</div>
           </div>
 
           <div className={styles.flightItem}>
             <div className={styles.flightTitle}>В пути</div>
-            <div className={styles.flightDescription}>{getFormatedTime(flight.travelTime)}</div>
+            <div className={styles.flightDescription}>{getFormatTimeTravel(flightInfo.travelTime)}</div>
           </div>
 
           <div className={styles.flightItem}>
-            <div className={styles.flightTitle}>{flight.transfers.length} пересадки</div>
+            <div className={styles.flightTitle}>
+              {
+                flightInfo.transfers.length === 0
+                  ? "Без пересадок"
+                  : `${getFormatTransfers(flightInfo.transfers.length)}`
+              }
+            </div>
             <div className={styles.flightDescription}>
-              {flight.transfers.join(", ")}
+              {flightInfo.transfers.join(", ")}
             </div>
           </div>
         </div>
