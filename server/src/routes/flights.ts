@@ -3,6 +3,16 @@ import {nanoid} from "nanoid"
 
 const router = Router()
 
+const timeToTimestamp = (hours: number, minutes: number) => {
+  const date = new Date()
+
+  date.setHours(hours)
+  date.setMinutes(minutes)
+  date.setSeconds(0)
+
+  return date.getTime()
+}
+
 const flights = [
   {
     id: nanoid(),
@@ -14,27 +24,27 @@ const flights = [
         id: nanoid(),
         from: "MOW",
         to: "HKT",
-        startTime: 1734061500206,
-        endTime: 1734054300892,
-        travelTime: 1734099300524,
+        startTime: timeToTimestamp(10, 45),
+        endTime: timeToTimestamp(8, 0),
+        travelTime: timeToTimestamp(21, 15),
         transfers: ["HKG", "JNB"]
       },
       {
         id: nanoid(),
         from: "MOW",
         to: "HKT",
-        startTime: 1734063600292,
-        endTime: 1734025800250,
-        travelTime: 1734071400032,
+        startTime: timeToTimestamp(11, 20),
+        endTime: timeToTimestamp(0, 50),
+        travelTime: timeToTimestamp(13, 30),
         transfers: ["HKG"]
       },
       {
         id: nanoid(),
         from: "MOW",
         to: "HKT",
-        startTime: 1734063600292,
-        endTime: 1734025800250,
-        travelTime: 1734071400032,
+        startTime: timeToTimestamp(12, 50),
+        endTime: timeToTimestamp(10, 20),
+        travelTime: timeToTimestamp(22, 30),
         transfers: ["HKG", "JNB", "KFV"]
       }
     ]
@@ -43,15 +53,15 @@ const flights = [
     id: nanoid(),
     name: "Авиасейлс",
     logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
-    price: "13400",
+    price: "5400",
     flights: [
       {
         id: nanoid(),
         from: "HKG",
         to: "JNB",
-        startTime: 1734061500206,
-        endTime: 1734054300892,
-        travelTime: 1734099300524,
+        startTime: timeToTimestamp(12, 15),
+        endTime: timeToTimestamp(16, 0),
+        travelTime: timeToTimestamp(4, 45),
         transfers: []
       },
     ],

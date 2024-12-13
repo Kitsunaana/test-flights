@@ -1,23 +1,22 @@
 import styles from "./styles.module.css"
 import { clsx } from "clsx"
-
-const sortList = [
-  { value: "cheap", caption: "Самый дешевый" },
-  { value: "fast", caption: "Самый быстрый" },
-]
+import {sortList} from "../../model/use-flights-sort.ts";
 
 export const Sorting = ({
-  selected
+  selected,
+  onChange,
 }: {
   selected?: string
+  onChange?: (sort: string) => void
 }) => {
   return (
     <div className={styles.sorting}>
       {sortList.map((sort) => (
         <button
-          key={sort.value}
+          key={sort.name}
+          onClick={() => onChange?.(sort.name)}
           className={clsx(styles.button, {
-            [styles.selected]: selected === sort.value
+            [styles.selected]: selected === sort.name
           })}
         >
           {sort.caption}

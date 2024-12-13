@@ -29,9 +29,19 @@ export const timestampToTime = (timestamp: number) => {
 }
 
 const getFormatTime = (timestamp: number) => {
-  const time = timestampToTime(timestamp)
+  const time = timestampToTime(timestamp);
 
-  return `${time.hours}:${time.minutes}`
+  const formattedHours = String(time.hours).padStart(2, '0');
+  const formattedMinutes = String(time.minutes).padStart(2, '0');
+
+  return `${formattedHours}:${formattedMinutes}`;
+}
+
+export const getFormatTimeFlight = (times: {
+  startTime: number
+  endTime: number
+}) => {
+  return `${getFormatTime(times.startTime)} - ${getFormatTime(times.endTime)}`
 }
 
 export const getFormatTimeTravel = (timestamp: number) => {
@@ -51,21 +61,28 @@ export const getFormatPrice = (price: string) => {
 }
 
 export const getFormatTransfers = (count: number) => {
-  let word = "пересадка";
+  let word = "пересадка"
   if (count % 10 === 1 && count % 100 !== 11) {
-    word = "пересадка"; // 1 пересадка
+    word = "пересадка" // 1 пересадка
   } else if (count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 10 || count % 100 >= 20)) {
-    word = "пересадки"; // 2, 3, 4 пересадки
+    word = "пересадки" // 2, 3, 4 пересадки
   } else {
-    word = "пересадок"; // 0, 5-9, 11-14 пересадок
+    word = "пересадок" // 0, 5-9, 11-14 пересадок
   }
 
   return `${count} ${word}`;
 }
 
-export const getFormatTimeFlight = (times: {
-  startTime: number
-  endTime: number
-}) => {
-  return `${getFormatTime(times.startTime)} - ${getFormatTime(times.endTime)}`
+export const compareFlightTimes = (a: FlightInfo, b: FlightInfo) => {
+  if (a.travelTime < b.travelTime) return -1
+  if (a.travelTime > b.travelTime) return 1
+  return 0
 }
+
+export const compareFlightPrice = (a: Flight, b: Flight) => {
+  if (a.price < b.price) return 1
+  if (a.price > b.price) return -1
+  return 0
+}
+
+export const sortNestedFlightsByTime = (flight: Flight) => flight.flights.sort(compareFlightTimes)
