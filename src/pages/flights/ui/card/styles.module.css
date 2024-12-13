@@ -1,0 +1,54 @@
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px 0px rgba(34, 60, 80, 0.2);
+  padding: 15px;
+}
+
+.column {
+  flex: 1;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.price {
+  color: rgb(33, 150, 243);
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.logo {
+  height: 35px;
+  width: auto;
+}
+
+.flight {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flight:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.flightItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.flightTitle {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #918c8c;
+  text-transform: uppercase;
+}
+
+.flightDescription {
+  font-size: 16px;
+}

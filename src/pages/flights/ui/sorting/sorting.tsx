@@ -14,7 +14,8 @@ export const Sorting = ({
   return (
     <div className={styles.sorting}>
       {sortList.map((sort) => (
-        <button 
+        <button
+          key={sort.value}
           className={clsx(styles.button, {
             [styles.selected]: selected === sort.value
           })}

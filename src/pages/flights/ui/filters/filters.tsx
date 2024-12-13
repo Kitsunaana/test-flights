@@ -5,8 +5,8 @@ const filters = [
   { value: "all", caption: "Все" }, 
   { value: "0", caption: "Без пересадок"}, 
   { value: "1", caption: "1 Пересадка" },
-  { value: "2", caption: "2 Пересадка" }, 
-  { value: "3", caption: "3 Пересадка" }, 
+  { value: "2", caption: "2 Пересадки" }, 
+  { value: "3", caption: "3 Пересадки" }, 
 ]
 
 export const Filters = () => {
@@ -16,7 +16,7 @@ export const Filters = () => {
 
       <div className={styles.checkboxList}>
         {filters.map((filter) => (
-          <div>
+          <div key={filter.value}>
             <Checkbox caption={filter.caption} />
           </div>
         ))}
