@@ -1,27 +1,24 @@
-import {Flight} from "../../domain/flight.ts";
-import {useMemo, useState} from "react";
+import { useMemo, useState } from "react"
+import { Flight } from "../../domain/flight.ts"
+import { useFiltersQueryParam } from "../use-query-params.ts"
 import {
   filterByTransfers,
-  filterEmptyFlights, FilterRecord,
+  filterEmptyFlights,
+  FilterRecord,
   getAllSelectedFilters,
-  getCopyFlights,
-  getFilterRecord
-} from "./flights.ts";
-import {useFilterQueryParam} from "../use-query-params.ts";
+  getCopyFlights
+} from "./flights.ts"
 
 export const useFlightsFilter = (flights: Flight[]) => {
-  const filterQueryParam = useFilterQueryParam()
+  const filtersQuery = useFiltersQueryParam()
 
-  const [selectedFilters, setSelectedFilters] = useState<FilterRecord>(() => ({
-    ...getFilterRecord(),
-    ...filterQueryParam
-  }))
+  const [selectedFilters, setSelectedFilters] = useState<FilterRecord>(filtersQuery.getFiltersFromQuery)
 
   const onChangeFilter = (filter: { name: string, value: boolean }) => {
-    setSelectedFilters((prevFilters) => ({
-      ...prevFilters,
-      [filter.name]: filter.value
-    }))
+    const newFilters = { ...selectedFilters, [filter.name]: filter.value }
+
+    setSelectedFilters(newFilters)
+    filtersQuery.updateFilters(newFilters)
   }
 
   const memoizedFlights = useMemo(() => {

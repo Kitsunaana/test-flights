@@ -1,17 +1,17 @@
-import {compareFlightPrice, compareFlightTimes, Flight, sortNestedFlightsByTime} from "../domain/flight.ts";
-import {useMemo, useState} from "react";
-import {useSortQueryParam} from "./use-query-params.ts";
-
-export const sortList = [
-  { name: "price", caption: "Самый дешевый" },
-  { name: "speed", caption: "Самый быстрый" },
-]
+import { compareFlightPrice, compareFlightTimes, Flight, sortNestedFlightsByTime } from "../domain/flight.ts"
+import { useMemo, useState } from "react"
+import { useSortQueryParam } from "./use-query-params.ts"
 
 export const useFlightsSort = (flights: Flight[]) => {
   const sortQueryParam = useSortQueryParam()
-  const [selectedSort, setSelectedSort] = useState<string | undefined>(sortQueryParam)
+  const [selectedSort, setSelectedSort] = useState<string | null>(sortQueryParam.getSortParam)
 
-  const onChangeSort = (sort: string) => setSelectedSort(sort === selectedSort ? undefined : sort)
+  const onChangeSort = (sort: string) => {
+    const newSort = sort === selectedSort ? null : sort
+
+    setSelectedSort(newSort)
+    sortQueryParam.setSortParam(newSort)
+  }
 
   const sortedFlights = useMemo(() => {
     const copyFlights: Flight[] = JSON.parse(JSON.stringify(flights))
@@ -23,12 +23,11 @@ export const useFlightsSort = (flights: Flight[]) => {
         copyFlights
           .map((flight) => ({ ...flight, flights: sortNestedFlightsByTime(flight) }))
           .sort((a, b) => (
-              compareFlightTimes(
-                sortNestedFlightsByTime(a)[0],
-                sortNestedFlightsByTime(b)[0]
-              )
+            compareFlightTimes(
+              sortNestedFlightsByTime(a)[0],
+              sortNestedFlightsByTime(b)[0]
             )
-          )
+          ))
       )
     }
 

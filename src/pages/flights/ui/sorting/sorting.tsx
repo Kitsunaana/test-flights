@@ -1,12 +1,12 @@
 import styles from "./styles.module.css"
 import { clsx } from "clsx"
-import {sortList} from "../../model/use-flights-sort.ts";
+import { sortList } from "../../domain/const.ts"
 
 export const Sorting = ({
   selected,
   onChange,
 }: {
-  selected?: string
+  selected: string | null
   onChange?: (sort: string) => void
 }) => {
   return (

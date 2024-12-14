@@ -2,8 +2,8 @@ import { Filters } from "./ui/filters"
 import { Card } from "./ui/card"
 import { Root } from "./ui/root"
 import { Sorting } from "./ui/sorting"
-import {useFlights} from "./model/use-flights.ts"
-import {flightsApi} from "./api.ts"
+import { useFlights} from "./model/use-flights.ts"
+import { flightsApi} from "./api.ts"
 import {useFlightsSort} from "./model/use-flights-sort.ts"
 import {useFlightsFilter} from "./model/flights-filter/use-flights-filter.ts"
 
@@ -28,7 +28,7 @@ export const Page = () => {
       )}
       cards={(
         <>
-          {filterFlights.list.map((flight) => (
+          {sortFlights.list.map((flight) => (
             <Card key={flight.id} flight={flight} />
           ))}
         </>

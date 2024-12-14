@@ -15,9 +15,7 @@ export const Root = ({
 
   return (
     <div className={styles.root}>
-      {width >= 725 && (
-        <div className={styles.filters}>{filters}</div>
-      )}
+      {width >= 725 && <div className={styles.filters}>{filters}</div>}
       <div className={styles.contentContainer}>
         <div className={styles.sorting}>{sorting}</div>
         <div className={styles.list}>{cards}</div>

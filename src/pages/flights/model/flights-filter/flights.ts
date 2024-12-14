@@ -1,5 +1,5 @@
-import {filterList} from "../../domain/const.ts"
-import {Flight} from "../../domain/flight.ts"
+import { filterList } from "../../domain/const.ts"
+import { Flight } from "../../domain/flight.ts"
 
 export type FilterRecord = {
   "all": boolean
@@ -21,8 +21,8 @@ export const getCopyFlights = (flights: Flight[]): Flight[] => JSON.parse(JSON.s
 const getIsNotEmptySelectedFilters = (filters: unknown[]) => filters.length !== 0
 
 export const getAllSelectedFilters = (filters: FilterRecord) => (
-  Object
-    .keys(filters)
+  (Object
+    .keys(filters) as (keyof FilterRecord)[])
     .filter((key) => filters[key])
     .map(Number)
 )
