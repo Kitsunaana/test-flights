@@ -14,7 +14,8 @@ export const Search = ({
 }) => {
   return (
     <div className={styles.searchContainer}>
-      <Input 
+      <Input
+        className={styles.input}
         value={fromValue} 
         onChange={onChangeFrom} 
         placeholder="Откуда" 
@@ -22,6 +23,7 @@ export const Search = ({
         fullWidth
       />
       <Input 
+        className={styles.input}
         value={toValue} 
         onChange={onChangeTo} 
         placeholder="Куда" 

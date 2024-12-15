@@ -29,6 +29,7 @@
 .flight {
   display: flex;
   justify-content: space-between;
+  gap: 4px;
 }
 
 .flight:not(:last-child) {
@@ -51,4 +52,26 @@
 
 .flightDescription {
   font-size: 16px;
+}
+
+@media (max-width: 450px) {
+  .logo {
+    height: 20px;
+    width: auto;
+  }
+
+  .price {
+    color: rgb(33, 150, 243);
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  .flightTitle {
+    font-size: 12px;
+    letter-spacing: 0px;
+  }
+
+  .flightDescription {
+    font-size: 12px;
+  }
 }

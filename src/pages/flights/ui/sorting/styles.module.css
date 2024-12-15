@@ -37,3 +37,9 @@
 .button.selected:hover {
   background-color: rgb(12, 95, 163);
 }
+
+@media (max-width: 450px) {
+  .sorting {
+    min-height: 30px;
+  }
+}
