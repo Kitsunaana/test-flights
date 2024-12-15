@@ -16,8 +16,6 @@ export const getFilterRecord = (): FilterRecord => (
   }, {} as FilterRecord)
 )
 
-export const getCopyFlights = (flights: Flight[]): Flight[] => JSON.parse(JSON.stringify(flights))
-
 const getIsNotEmptySelectedFilters = (filters: unknown[]) => filters.length !== 0
 
 export const getAllSelectedFilters = (filters: FilterRecord) => (

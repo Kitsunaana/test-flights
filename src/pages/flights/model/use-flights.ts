@@ -1,4 +1,4 @@
-import {useLoad} from "../../../shared/lib/use-load.ts";
+import { useLoad } from "../../../shared/lib/use-load.ts";
 
 export type ListApi<T extends { id: string }> = {
   list: () => Promise<T[]>

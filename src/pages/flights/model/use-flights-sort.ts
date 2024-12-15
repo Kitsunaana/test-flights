@@ -1,4 +1,4 @@
-import { compareFlightPrice, compareFlightTimes, Flight, sortNestedFlightsByTime } from "../domain/flight.ts"
+import { compareFlightPrice, compareFlightTimes, Flight, getCopyFlights, sortNestedFlightsByTime } from "../domain/flight.ts"
 import { useMemo, useState } from "react"
 import { useSortQueryParam } from "./use-query-params.ts"
 
@@ -14,7 +14,7 @@ export const useFlightsSort = (flights: Flight[]) => {
   }
 
   const sortedFlights = useMemo(() => {
-    const copyFlights: Flight[] = JSON.parse(JSON.stringify(flights))
+    const copyFlights = getCopyFlights(flights)
 
     if (selectedSort === "price") return copyFlights.sort(compareFlightPrice)
 

@@ -86,3 +86,7 @@ export const compareFlightPrice = (a: Flight, b: Flight) => {
 }
 
 export const sortNestedFlightsByTime = (flight: Flight) => flight.flights.sort(compareFlightTimes)
+
+export const getCopyFlights = (flights: Flight[]): Flight[] => (
+  JSON.parse(JSON.stringify(flights))
+)

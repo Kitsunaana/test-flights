@@ -1,12 +1,11 @@
 import { useMemo, useState } from "react"
-import { Flight } from "../../domain/flight.ts"
+import { Flight, getCopyFlights } from "../../domain/flight.ts"
 import { useFiltersQueryParam } from "../use-query-params.ts"
 import {
   filterByTransfers,
   filterEmptyFlights,
   FilterRecord,
   getAllSelectedFilters,
-  getCopyFlights
 } from "./flights.ts"
 
 export const useFlightsFilter = (flights: Flight[]) => {

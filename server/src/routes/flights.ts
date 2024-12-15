@@ -1,5 +1,5 @@
 import { Router } from "express"
-import {nanoid} from "nanoid"
+import { nanoid } from "nanoid"
 
 const router = Router()
 
@@ -13,6 +13,49 @@ const timeToTimestamp = (hours: number, minutes: number) => {
   return date.getTime()
 }
 
+const codes = [
+  {
+    code: "SVO",
+    name: "Москва"
+  },
+  {
+    code: "HKT",
+    name: "Пхукет"
+  },
+  {
+    code: "LED",
+    name: "Санкт-Петербург"
+  },
+  {
+    code: "KZN",
+    name: "Казань"
+  },
+  {
+    code: "EGO",
+    name: "Екатеринбург"
+  },
+  {
+    code: "NGR",
+    name: "Нижний Новгород"
+  },
+  {
+    code: "VVO",
+    name: "Владивосток"
+  },
+  {
+    code: "ROV",
+    name: "Ростов-на-Дону"
+  },
+  {
+    code: "KRR",
+    name: "Краснодар"
+  },
+  {
+    code: "UFA",
+    name: "Уфа"
+  }
+];
+
 const flights = [
   {
     id: nanoid(),
@@ -22,7 +65,7 @@ const flights = [
     flights: [
       {
         id: nanoid(),
-        from: "MOW",
+        from: "LED",
         to: "HKT",
         startTime: timeToTimestamp(10, 45),
         endTime: timeToTimestamp(8, 0),
@@ -31,7 +74,7 @@ const flights = [
       },
       {
         id: nanoid(),
-        from: "MOW",
+        from: "LED",
         to: "HKT",
         startTime: timeToTimestamp(11, 20),
         endTime: timeToTimestamp(0, 50),
@@ -40,7 +83,7 @@ const flights = [
       },
       {
         id: nanoid(),
-        from: "MOW",
+        from: "LED",
         to: "HKT",
         startTime: timeToTimestamp(12, 50),
         endTime: timeToTimestamp(10, 20),
@@ -57,7 +100,7 @@ const flights = [
     flights: [
       {
         id: nanoid(),
-        from: "HKG",
+        from: "HKT",
         to: "JNB",
         startTime: timeToTimestamp(12, 15),
         endTime: timeToTimestamp(16, 0),
@@ -70,6 +113,10 @@ const flights = [
 
 router.get("/", async (req, res) => {
   res.json(flights)
+})
+
+router.get("/codes", async (req, res) => {
+  res.json(codes)
 })
 
 router.get("/:id", async (req, res) => {
