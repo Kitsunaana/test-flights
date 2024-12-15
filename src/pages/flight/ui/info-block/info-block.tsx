@@ -24,7 +24,7 @@ export const InfoBlock = ({
       <span>Время: {flight.dateStart} {getFormatTime(flight.startTime)} - {flight.dateEnd} {getFormatTime(flight.endTime)}</span>
       <span>Пересадки:{" "}
         {flight.transfers.map((transfer) => (
-          <span key={transfer}>{cities[transfer]?.name ?? transfer}</span>
+          <span key={transfer}>{cities[transfer]?.name ?? transfer}{" "}</span>
         ))}
       </span>
       <span>Время в пути: {getFormatTimeTravel(flight.travelTime)}</span>
