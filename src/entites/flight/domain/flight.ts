@@ -9,8 +9,8 @@ export type FlightInfo = {
   price: string
   name: string
   logo: string
-  dateStart: string
-  dateEnd: string
+  startDate: string
+  endDate: string
   classType: string
 }
 

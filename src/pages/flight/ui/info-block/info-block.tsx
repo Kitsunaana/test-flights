@@ -21,7 +21,7 @@ export const InfoBlock = ({
       </div>
       <h1>{cities[flight.from]?.name} - {cities[flight.to]?.name}</h1>
       <span>Стоимость: {getFormatPrice(flight.price)}</span>
-      <span>Время: {flight.dateStart} {getFormatTime(flight.startTime)} - {flight.dateEnd} {getFormatTime(flight.endTime)}</span>
+      <span>Время: {flight.startDate} {getFormatTime(flight.startTime)} - {flight.endDate} {getFormatTime(flight.endTime)}</span>
       <span>Пересадки:{" "}
         {flight.transfers.map((transfer) => (
           <span key={transfer}>{cities[transfer]?.name ?? transfer}{" "}</span>

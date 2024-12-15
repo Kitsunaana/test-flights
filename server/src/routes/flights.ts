@@ -73,8 +73,8 @@ const flights = [
         price: "13400",
         name: "Авиасейлс",
         logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
-        dateStart: "2024-12-15",
-        dateEnd: "2024-12-15",
+        startDate: "2024-12-15",
+        endDate: "2024-12-15",
         classType: "business"
       },
       {
@@ -88,8 +88,8 @@ const flights = [
         price: "13400",
         name: "Авиасейлс",
         logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
-        dateStart: "2024-12-15",
-        dateEnd: "2024-12-15",
+        startDate: "2024-12-15",
+        endDate: "2024-12-15",
         classType: "business"
       },
       {
@@ -103,8 +103,8 @@ const flights = [
         price: "13400",
         name: "Авиасейлс",
         logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
-        dateStart: "2024-12-15",
-        dateEnd: "2024-12-15",
+        startDate: "2024-12-15",
+        endDate: "2024-12-15",
         classType: "business"
       }
     ]
@@ -126,8 +126,8 @@ const flights = [
         price: "5400",
         name: "Авиасейлс",
         logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
-        dateStart: "2024-12-15",
-        dateEnd: "2024-12-15",
+        startDate: "2024-12-15",
+        endDate: "2024-12-15",
         classType: "business"
       },
     ],
@@ -149,8 +149,8 @@ const flights = [
         price: "5400",
         name: "Авиасейлс",
         logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
-        dateStart: "2024-12-15",
-        dateEnd: "2024-12-15",
+        startDate: "2024-12-15",
+        endDate: "2024-12-15",
         classType: "business"
       },
     ],
