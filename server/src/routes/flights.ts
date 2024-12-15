@@ -58,54 +58,78 @@ const codes = [
 
 const flights = [
   {
-    id: nanoid(),
+    id: "1",
     name: "Авиасейлс",
     logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
     price: "13400",
     flights: [
       {
-        id: nanoid(),
+        id: "2",
         from: "LED",
         to: "HKT",
         startTime: timeToTimestamp(10, 45),
         endTime: timeToTimestamp(8, 0),
         travelTime: timeToTimestamp(21, 15),
-        transfers: ["HKG", "JNB"]
+        transfers: ["HKG", "JNB"],
+        price: "13400",
+        name: "Авиасейлс",
+        logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
+        dateStart: "2024-12-15",
+        dateEnd: "2024-12-15",
+        classType: "business"
       },
       {
-        id: nanoid(),
+        id: "3",
         from: "LED",
         to: "HKT",
         startTime: timeToTimestamp(11, 20),
         endTime: timeToTimestamp(0, 50),
         travelTime: timeToTimestamp(13, 30),
-        transfers: ["HKG"]
+        transfers: ["HKG"],
+        price: "13400",
+        name: "Авиасейлс",
+        logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
+        dateStart: "2024-12-15",
+        dateEnd: "2024-12-15",
+        classType: "business"
       },
       {
-        id: nanoid(),
+        id: "4",
         from: "LED",
         to: "HKT",
         startTime: timeToTimestamp(12, 50),
         endTime: timeToTimestamp(10, 20),
         travelTime: timeToTimestamp(22, 30),
-        transfers: ["HKG", "JNB", "KFV"]
+        transfers: ["HKG", "JNB", "KFV"],
+        price: "13400",
+        name: "Авиасейлс",
+        logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
+        dateStart: "2024-12-15",
+        dateEnd: "2024-12-15",
+        classType: "business"
       }
     ]
   },
   {
-    id: nanoid(),
+    id: "5",
     name: "Авиасейлс",
     logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
     price: "5400",
     flights: [
       {
-        id: nanoid(),
+        id: "6",
         from: "HKT",
         to: "JNB",
         startTime: timeToTimestamp(12, 15),
         endTime: timeToTimestamp(16, 0),
         travelTime: timeToTimestamp(4, 45),
-        transfers: []
+        transfers: [],
+        price: "5400",
+        name: "Авиасейлс",
+        logo: "https://guide.aviasales.ru/uploads/JlnO0aZbrjCgtFJgtsRvmA.png",
+        dateStart: "2024-12-15",
+        dateEnd: "2024-12-15",
+        classType: "business"
       },
     ],
   },
@@ -122,7 +146,14 @@ router.get("/codes", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const { id } = req.params
 
-  res.json({})
+  // 1rzX-Ia_Kgi70-CDPS-Wg
+
+  const allFlights = flights.map((flight) => flight.flights).flat()
+  const findFlight = allFlights.find((flight) => flight.id === id)
+
+  if (!findFlight) res.status(404).json({ message: "Flight not found" })
+
+  res.json(findFlight)
 })
 
 export default router;

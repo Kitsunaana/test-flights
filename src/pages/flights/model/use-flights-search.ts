@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react"
-import { Flight, getCopyFlights } from "../domain/flight"
-import { CityCode, getCodesRecord, isMatchWord } from "../domain/city-code"
+import { CityCode, Flight, getCodesRecord, getCopyFlights, isMatchWord } from "../../../entites/flight"
 
 export const useFlightsSearch = (flights: Flight[], codes: CityCode[]) => {
   const [search, setSearch] = useState({

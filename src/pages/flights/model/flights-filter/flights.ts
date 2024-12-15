@@ -1,5 +1,5 @@
+import { Flight } from "../../../../entites/flight"
 import { filterList } from "../../domain/const.ts"
-import { Flight } from "../../domain/flight.ts"
 
 export type FilterRecord = {
   "all": boolean

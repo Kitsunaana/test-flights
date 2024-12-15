@@ -1,0 +1,11 @@
+.root {
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+  max-width: 1140px;
+  padding: 0px 10px;
+  height: 100%;
+  max-height: calc(100vh - 50px);
+  width: 100%;
+  margin: 0px auto;
+}

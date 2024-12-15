@@ -1,16 +1,14 @@
 import { Modal } from "../../shared/ui/modal"
-import { flightsApi } from "./api.ts"
 import { useFlightsFilter } from "./model/flights-filter/use-flights-filter.ts"
-import { useCitiesCode } from "./model/use-cities-code.ts"
 import { useFlightsSearch } from "./model/use-flights-search.ts"
 import { useFlightsSort } from "./model/use-flights-sort.ts"
-import { useFlights } from "./model/use-flights.ts"
 import { useModalFilters } from "./model/use-modal-filters.ts"
 import { Card } from "./ui/card"
 import { Filters } from "./ui/filters"
 import { Root } from "./ui/root"
 import { Search } from "./ui/search/search.tsx"
 import { Sorting } from "./ui/sorting"
+import { flightsApi, useCitiesCode, useFlights } from "../../entites/flight"
 
 export const Page = () => {
   const citiesCode = useCitiesCode(flightsApi)

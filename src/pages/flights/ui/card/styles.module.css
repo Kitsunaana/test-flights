@@ -30,6 +30,7 @@
   display: flex;
   justify-content: space-between;
   gap: 4px;
+  position: relative;
 }
 
 .flight:not(:last-child) {
@@ -52,6 +53,15 @@
 
 .flightDescription {
   font-size: 16px;
+}
+
+.link {
+  position: absolute;
+  background-color: rgba(34, 60, 80, 0.2);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 @media (max-width: 450px) {

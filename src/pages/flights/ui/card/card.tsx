@@ -5,7 +5,8 @@ import {
   getFormatPrice,
   getFormatTimeFlight,
   getFormatTimeTravel, getFormatTransfers
-} from "../../domain/flight"
+} from "../../../../entites/flight/domain/flight"
+import { Link } from "react-router-dom"
 
 export const Card = ({ flight }: { flight: Flight }) => {
   return (
@@ -20,6 +21,7 @@ export const Card = ({ flight }: { flight: Flight }) => {
 
       {flight.flights.map((flightInfo) => (
         <div className={styles.flight} key={flightInfo.id}>
+          <Link className={styles.link} to={`flight/${flightInfo.id}`}></Link>
           <div className={styles.flightItem}>
             <div className={styles.flightTitle}>{flightInfo.from} - {flightInfo.to}</div>
             <div className={styles.flightDescription}>{getFormatTimeFlight(flightInfo)}</div>

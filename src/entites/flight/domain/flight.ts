@@ -6,6 +6,12 @@ export type FlightInfo = {
   endTime: number
   travelTime: number
   transfers: string[]
+  price: string
+  name: string
+  logo: string
+  dateStart: string
+  dateEnd: string
+  classType: string
 }
 
 export type Flight = {
@@ -28,7 +34,7 @@ export const timestampToTime = (timestamp: number) => {
   }
 }
 
-const getFormatTime = (timestamp: number) => {
+export const getFormatTime = (timestamp: number) => {
   const time = timestampToTime(timestamp);
 
   const formattedHours = String(time.hours).padStart(2, '0');

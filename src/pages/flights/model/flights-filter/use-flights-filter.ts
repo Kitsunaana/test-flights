@@ -1,5 +1,4 @@
 import { useMemo, useState } from "react"
-import { Flight, getCopyFlights } from "../../domain/flight.ts"
 import { useFiltersQueryParam } from "../use-query-params.ts"
 import {
   filterByTransfers,
@@ -7,6 +6,7 @@ import {
   FilterRecord,
   getAllSelectedFilters,
 } from "./flights.ts"
+import { Flight, getCopyFlights } from "../../../../entites/flight"
 
 export const useFlightsFilter = (flights: Flight[]) => {
   const filtersQuery = useFiltersQueryParam()

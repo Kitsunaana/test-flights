@@ -1,4 +1,4 @@
-import { compareFlightPrice, compareFlightTimes, Flight, getCopyFlights, sortNestedFlightsByTime } from "../domain/flight.ts"
+import { compareFlightPrice, compareFlightTimes, Flight, getCopyFlights, sortNestedFlightsByTime } from "../../../entites/flight"
 import { useMemo, useState } from "react"
 import { useSortQueryParam } from "./use-query-params.ts"
 
