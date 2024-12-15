@@ -7,9 +7,13 @@ export const useFlightsSearch = (flights: Flight[], codes: CityCode[]) => {
     to: "",
   })
 
-  const onSearchChange = (key: "from" | "to") => (value: string) => (
-    setSearch((prev) => ({ ...prev, [key]: value }))
-  )
+  const onSearchChange = (key: "from" | "to") => (value: string) => {
+    console.log(value);
+
+    (
+      setSearch((prev) => ({ ...prev, [key]: value }))
+    )
+  }
 
   const memoizedSearch = useMemo(() => {
     const codeRecord = getCodesRecord(codes)
@@ -25,6 +29,7 @@ export const useFlightsSearch = (flights: Flight[], codes: CityCode[]) => {
         if (search.from && search.to) return fromMatch && toMatch
         if (search.from && !search.to) return fromMatch
         if (!search.from && search.to) return toMatch
+        if (search.from === "" && search.to === "") return true
 
         return true
       })

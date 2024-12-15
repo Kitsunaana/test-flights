@@ -1,5 +1,5 @@
 {
-  "name": "architecture-course",
+  "name": "test-flights",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,12 +10,9 @@
   "author": "Kitsunaana",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.21.1",
     "@types/express": "^5.0.0",
     "express": "^4.21.1",
-    "nanoid": "^5.0.9",
     "tsx": "^4.19.2",
-    "typescript": "^5.6.3",
-    "zod": "^3.23.8"
+    "typescript": "^5.6.3"
   }
 }

@@ -1,7 +1,7 @@
 import clsx from "clsx"
+import { useRef } from "react"
 import { Icon } from "../icon"
 import styles from "./styles.module.css"
-import { useRef } from "react"
 
 export const Input = ({ 
   value, 
@@ -22,10 +22,14 @@ export const Input = ({
   name?: string
   type?: string
 }) => {
-  const clearRef = useRef<HTMLInputElement>(null)
+  const clearRef = useRef<HTMLInputElement | null>(null)
 
   const handleClear = () => {
-    if (clearRef.current) clearRef.current.value = ""
+    if (clearRef.current) {
+      clearRef.current.onclick = (event) => onChange("", event)
+
+      clearRef.current.click()
+    }
   }
 
   return (
