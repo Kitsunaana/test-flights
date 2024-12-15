@@ -1,6 +1,6 @@
 import { flightsApi, useCitiesCode, useGetFlight } from "../../entites/flight";
+import { FeedbackForm } from "../../features/create-feedback";
 import { useGetId } from "./model/use-get-id";
-import { FormBlock } from './ui/form-block/form-block';
 import { InfoBlock } from './ui/info-block/info-block';
 import { Root } from "./ui/root";
 
@@ -13,9 +13,12 @@ export const Page = () => {
 
   return (
     <Root
-      formBlock={<FormBlock />}
+      formBlock={<FeedbackForm />}
       infoBlock={(
-        <InfoBlock flight={flight.data} cities={cities.recordCitiesCode} />
+        <InfoBlock
+          flight={flight.data}
+          cities={cities.recordCitiesCode}
+        />
       )}
     />
   )

@@ -1,5 +1,4 @@
 import { Router } from "express"
-import { nanoid } from "nanoid"
 
 const router = Router()
 
@@ -146,14 +145,18 @@ router.get("/codes", async (req, res) => {
 router.get("/:id", async (req, res) => {
   const { id } = req.params
 
-  // 1rzX-Ia_Kgi70-CDPS-Wg
-
   const allFlights = flights.map((flight) => flight.flights).flat()
   const findFlight = allFlights.find((flight) => flight.id === id)
 
   if (!findFlight) res.status(404).json({ message: "Flight not found" })
 
   res.json(findFlight)
+})
+
+router.post("/", async (req, res) => {
+  console.log(req.body)
+
+  res.json({ message: "Feedback sent" })
 })
 
 export default router;

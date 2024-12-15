@@ -1,5 +1,6 @@
 import { CityCode, FlightInfo, getFormatPrice, getFormatTime, getFormatTimeTravel } from "../../../../entites/flight"
 import { Button } from "../../../../shared/ui/button"
+import { useGoFlights } from "../../view-model/use-go-flights"
 import styles from "./styles.module.css"
 
 export const InfoBlock = ({ 
@@ -9,9 +10,11 @@ export const InfoBlock = ({
   flight: FlightInfo, 
   cities: Record<string, CityCode> 
 }) => {
+  const goToFlights = useGoFlights()
+
   return (
     <div className={styles.infoBlock}>
-      <Button className={styles.button}>Вернуться назад</Button>
+      <Button onClick={goToFlights} className={styles.button}>Вернуться назад</Button>
       <div className={styles.header}>
         <img src={flight.logo} alt="" />
         <h3>Авиакомпания: {flight.name}</h3>
