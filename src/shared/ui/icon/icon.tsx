@@ -3,7 +3,7 @@ export const Icon = ({
   fontSize = 24
 }: { 
   name: string
-  fontSize: number
+  fontSize?: number
 }) => {
   return (
     <span 
